@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- TODO: Add node to connect Election ViewModel -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.politicalpreparedness.election.ElectionsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.android.politicalpreparedness.MainActivity">
+
+        <!-- TODO: Add Upcoming Election Recycler and Header -->
+        <TextView
+            android:id="@+id/header_upcoming_elections"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/upcoming_elections"
+            app:layout_constraintEnd_toStartOf="@+id/end_grid"
+            app:layout_constraintStart_toStartOf="@+id/start_grid"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_upcoming_elections"
+            listData="@{viewModel.elections}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/half_grid"
+            app:layout_constraintEnd_toStartOf="@+id/end_grid"
+            app:layout_constraintStart_toStartOf="@+id/start_grid"
+            app:layout_constraintTop_toBottomOf="@+id/header_upcoming_elections" />
+
+
+        <!-- TODO: Add Saved Election Recycler and Header -->
+
+        <TextView
+            android:id="@+id/header_saved_elections"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/saved_elections"
+            app:layout_constraintEnd_toStartOf="@+id/end_grid"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_grid"
+            app:layout_constraintTop_toTopOf="@+id/half_grid" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_saved_elections"
+            listData="@{viewModel.savedElections}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/end_grid"
+            app:layout_constraintStart_toStartOf="@+id/start_grid"
+            app:layout_constraintTop_toBottomOf="@+id/header_saved_elections" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/half_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_normal" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_normal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

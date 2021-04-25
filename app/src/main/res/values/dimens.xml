@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="ic_width">24dp</dimen>
+
+    <!-- TODO: Add necessary dimension values -->s
+
+</resources>
